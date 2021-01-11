@@ -106,7 +106,7 @@
 	    public function createVPS( Request $r ) {
 	    	$serverId = ( $r->filled( 'serverId' ) ) ? $r->serverId : null;
 	    	$vpsRam 	= ( $r->filled( 'vpsRam' ) ) ? $r->vpsRam : null;
-	    	$vpsName  = ( $r->filled( 'vpsName' ) ) ? $r->vpsRam : null;
+	    	$vpsName  = ( $r->filled( 'vpsName' ) ) ? $r->vpsName : null;
 
 	    	if( empty( $serverId ) || empty( $vpsRam ) ) {
 	    		// Error

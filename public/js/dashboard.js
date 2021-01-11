@@ -5,7 +5,7 @@ var serverList = new Vue({
   },
   methods: {
     loadList: async function ( success, error ) {
-      await fetch('http://test-finale.tizianonicolai.com/api/server/all')
+      await fetch('/api/server/all')
         .then( response => response.json() )
         .then( function( data ) {
           serverList.list = data;
@@ -15,7 +15,7 @@ var serverList = new Vue({
       serverModal.showModal = true;
     },
     deleteServer: async function ( serverId ) {
-      await fetch('http://test-finale.tizianonicolai.com/api/server/' + serverId + '/delete')
+      await fetch('/api/server/' + serverId + '/delete')
         .then( response => response.json() )
         .then( function( data ) {
           serverList.loadList();
@@ -37,7 +37,7 @@ var serverModal = new Vue({
   methods: {
     createServer: function() {
       if(this.nameNewServer && this.ramNewServer) {
-        fetch('http://test-finale.tizianonicolai.com/api/server/create', {
+        fetch('/api/server/create', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

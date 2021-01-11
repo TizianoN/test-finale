@@ -1,27 +1,29 @@
 var vpsList = new Vue({
   el: "#vps-list",
   data: {
-    list: []
+    list: [],
+    available_ram: server_available_ram
   },
   methods: {
     loadList: async function ( success, error ) {
-      await fetch('http://test-finale.tizianonicolai.com/api/vps/' + serverId + '/all')
+      await fetch('/api/vps/' + serverId + '/all')
         .then( response => response.json() )
         .then( function( data ) {
           vpsList.list = data;
       });
 
-      await fetch('http://test-finale.tizianonicolai.com/api/server/' + serverId + '/ram/available')
+      await fetch('/api/server/' + serverId + '/ram/available')
         .then( response => response.json() )
         .then( function( data ) {
-          vpsModal.serverAvailableRam = data;
+          vpsList.available_ram = data;
+          vpsModal.available_ram = data;
       });
     },
     showModalVps: function () {
       vpsModal.showModal = true;
     },
     deleteVps: async function ( vpsId ) {
-      await fetch('http://test-finale.tizianonicolai.com/api/vps/' + vpsId + '/delete')
+      await fetch('/api/vps/' + vpsId + '/delete')
         .then( response => response.json() )
         .then( function( data ) {
           vpsList.loadList();
@@ -44,7 +46,7 @@ var vpsModal = new Vue({
   methods: {
     createVps: function() {
       if(this.nameNewVps && this.ramNewVps) {
-        fetch('http://test-finale.tizianonicolai.com/api/server/' + serverId + '/add/vps', {
+        fetch('/api/server/' + serverId + '/add/vps', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

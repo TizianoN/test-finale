@@ -16,6 +16,7 @@
         <a href="/" class="btn btn-primary" role="button">Back to servers list</a>
         <button class="btn btn-primary" @click="showModalVps">Create new vps</button>
         <br><br>
+        <small>Available Ram: @{{ available_ram }} MB</small>
         <table class="table" name="vps-list">
           <thead>
             <tr>
@@ -51,7 +52,7 @@
                 <slot name="body">
                   <input v-model="nameNewVps" placeHolder="Name"><br><br>
                   <input v-model="ramNewVps" placeHolder="Ram"><br>
-                  <small>Available Ram: @{{ serverAvailableRam }} MB</small>
+                  <small>Available Ram: @{{ available_ram }} MB</small>
                 </slot>
               </div>
               <div class="modal-footer">
@@ -75,8 +76,8 @@
     var server_total_ram = {{ $server['ram'] }}
     var server_available_ram = {{ $server_available_ram }}
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-    <script src="http://test-finale.tizianonicolai.com/js/vuex.js"></script>
-    <script src="http://test-finale.tizianonicolai.com/js/serverDetail.js?ver=<?php echo rand(1,4713287481239); ?>"></script>
+    <script src="/js/vue.js"></script>
+    <script src="/js/vuex.js"></script>
+    <script src="/js/serverDetail.js?ver=<?php echo rand(1,4713287481239); ?>"></script>
   </body>
 </html>

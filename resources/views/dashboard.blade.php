@@ -70,8 +70,8 @@
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-    <script src="http://test-finale.tizianonicolai.com/js/vuex.js"></script>
-    <script src="http://test-finale.tizianonicolai.com/js/dashboard.js?ver=<?php echo rand(1,4713287481239); ?>"></script>
+    <script src="/js/vue.js"></script>
+    <script src="/js/vuex.js"></script>
+    <script src="/js/dashboard.js?ver=<?php echo rand(1,4713287481239); ?>"></script>
   </body>
 </html>
